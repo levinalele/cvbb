@@ -770,6 +770,51 @@ function getOneUserEmail($email){
     return $stmt;
 }
 
+//Report
+function getAllReport(){
+    $link = get_koneksi();
+    try{
+        //query
+        $sql = "SELECT p.*, c.*, b.* FROM pembelian p JOIN cat_barang c ON p.id_pembelian = c.id_pembelian JOIN barang b ON c.id_barang = b.id_barang WHERE p.status_pembayaran =1";
+        //prepare
+        $stmt= $link->prepare($sql);
+        //execute
+        $stmt->execute();
+    }catch (PDOException $err){
+        echo $err->getMessage();
+        die();
+    }
+    close_koneksi($link);
+    return $stmt;
+}
+
+function getAllReportBy($fromdate,$todate){
+    $link = get_koneksi();
+    try{
+        //query
+//        var_dump($fromdate);
+//        var_dump($todate);
+//        exit;
+        $fromdate.=' 00:00:00';
+        $todate.=' 23:59:59';
+
+        $sql = "SELECT p.*, c.*, b.* FROM pembelian p JOIN cat_barang c ON p.id_pembelian = c.id_pembelian JOIN barang b ON c.id_barang = b.id_barang WHERE p.status_pembayaran =1 AND p.date BETWEEN ? AND ?";
+        //prepare
+        $stmt= $link->prepare($sql);
+        $stmt->bindParam(1, $fromdate, PDO::PARAM_STR);
+        $stmt->bindParam(2, $todate, PDO::PARAM_STR);
+        //execute
+        $stmt->execute();
+    }catch (PDOException $err){
+        echo $err->getMessage();
+        die();
+    }
+    close_koneksi($link);
+    return $stmt;
+}
+
+
+
 
 
 

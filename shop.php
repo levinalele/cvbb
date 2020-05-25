@@ -1,22 +1,18 @@
-<?php
-
-?>
 <!DOCTYPE html>
 <html lang="en">
-
+<style>
+    body{
+        zoom: 70%;
+    }
+</style>
 <?php
-
 include_once "conn.php";
 include_once "function.php";
-
-
-
 
 if (!isset($_SESSION['keranjang'])){
     $_SESSION['keranjang'] = array();}
 
 $i = 0;
-
 
 
 $btnCommand = FILTER_INPUT(INPUT_GET,'command');
@@ -32,9 +28,12 @@ if($btnCommand == 'add'){
 
 
 
-
-
 ?>
+<style>
+    body{
+        zoom: 70%;
+    }
+</style>
 
 <script>
     $(document).ready(function(){
@@ -136,6 +135,7 @@ if($btnCommand == 'add'){
                     <?php if ($_SESSION['approved_user']==TRUE){ ?><li><a href="index.php?menu=barang">Product</a></li><?php } ?>
                     <?php if ($_SESSION['approved_user']==FALSE){ ?><li><a href="index.php?menu=cart">Cart</a></li><?php } ?>
                     <?php if ($_SESSION['approved_user']==TRUE){ ?><li><a href="index.php?menu=check">Checkout</a></li><?php } ?>
+                    <?php if ($_SESSION['approved_user']==TRUE AND $_SESSION['userid']==1){ ?><li><a href="index.php?menu=report">Report</a></li><?php } ?>
                 </ul>
             </nav><br><br>
             <!-- Social Button -->

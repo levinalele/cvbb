@@ -10,6 +10,7 @@ include_once "function.php";
 
 
 ?>
+
 <script type="text/javascript">
 
 
@@ -101,6 +102,9 @@ switch ($nav){
         break;
     case 'iklan' :
         include_once 'iklan.php';
+        break;
+    case 'report' :
+        include_once 'report.php';
         break;
     case 'logout':
     {

@@ -6,6 +6,8 @@
 include_once "conn.php";
 include_once "function.php";
 
+
+
 $array = array_unique($_SESSION['keranjang'], SORT_REGULAR);
 $x = array_intersect($array, $array);
 $y = array_diff($array, $array);
@@ -57,6 +59,11 @@ if($btnSubmit)
 
 
 ?>
+<style>
+    body{
+        zoom: 70%;
+    }
+</style>
 
 
 <head>
@@ -137,6 +144,7 @@ if($btnSubmit)
                     <?php if ($_SESSION['approved_user']==TRUE){ ?><li><a href="index.php?menu=barang">Product</a></li><?php } ?>
                     <?php if ($_SESSION['approved_user']==FALSE){ ?><li class="active"><a href="index.php?menu=cart">Cart</a></li><?php } ?>
                     <?php if ($_SESSION['approved_user']==TRUE){ ?><li><a href="index.php?menu=check">Checkout</a></li><?php } ?>
+                    <?php if ($_SESSION['approved_user']==TRUE AND $_SESSION['userid']==1){ ?><li><a href="index.php?menu=report">Report</a></li><?php } ?>
                 </ul>
             </nav>
             <br><br>

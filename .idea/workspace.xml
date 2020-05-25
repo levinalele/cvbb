@@ -19,7 +19,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1aeaZVxqUfZG7nuINlTVU6JphiE" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -29,7 +33,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../pw2_prak2_1" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -40,10 +44,10 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\cvbb" />
+      <recent name="C:\xampp\htdocs\cvbb\datatables" />
       <recent name="C:\xampp\htdocs\cvbb\.sass-cache" />
       <recent name="C:\xampp\htdocs\cvbb\css" />
       <recent name="C:\xampp\htdocs\cvbb\fonts" />
-      <recent name="C:\xampp\htdocs\cvbb\js" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\cvbb" />
@@ -91,6 +95,14 @@
       <workItem from="1589862233350" duration="43129000" />
       <workItem from="1589944268841" duration="26104000" />
       <workItem from="1590056505713" duration="1493000" />
+      <workItem from="1590064539431" duration="7150000" />
+      <workItem from="1590124012797" duration="524000" />
+      <workItem from="1590128474165" duration="738000" />
+      <workItem from="1590318788086" duration="18153000" />
+      <workItem from="1590343303701" duration="8826000" />
+      <workItem from="1590378242431" duration="276000" />
+      <workItem from="1590385252856" duration="651000" />
+      <workItem from="1590414993139" duration="5266000" />
     </task>
     <servers />
   </component>
@@ -98,10 +110,14 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1589866166117">
+    <state x="371" y="88" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590342285069">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1589866166117" />
+    <state x="371" y="88" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1590342285069" />
+    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1590417306096">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1590417306096" />
     <state width="1237" height="204" key="GridCell.Tab.0.bottom" timestamp="1587852002661">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -154,14 +170,14 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="473" y="155" key="NewPhpClassDialog/0.0.1280.680@0.0.1280.680" timestamp="1589878165616" />
-    <state x="795" y="264" key="NewPhpFileDialog" timestamp="1589944281176">
+    <state x="795" y="264" key="NewPhpFileDialog" timestamp="1590330258186">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="795" y="264" key="NewPhpFileDialog/0.0.1280.680@0.0.1280.680" timestamp="1589944281176" />
-    <state x="337" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1588684374539">
+    <state x="795" y="264" key="NewPhpFileDialog/0.0.1280.680@0.0.1280.680" timestamp="1590330258186" />
+    <state x="337" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1590415018293">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="337" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1588684374539" />
+    <state x="337" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1590415018293" />
     <state x="297" y="151" key="run.anything.popup" timestamp="1589343940031">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

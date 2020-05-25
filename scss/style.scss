@@ -487,11 +487,11 @@ img {
         @include trans-duration(500ms);
         position: relative;
         z-index: 1;
-        @include flex(0 0 320px);
-        width: 320px;
-        max-width: 320px;
+        @include flex(0 0 280px);
+        width: 280px;
+        max-width: 280px;
         background-color: #fff;
-        padding: 60px 75px;
+        padding: 60px 0px;
         @media #{$breakpoint-md} {
             @include flex(0 0 280px);
             width: 280px;

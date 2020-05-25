@@ -1,9 +1,33 @@
 <!DOCTYPE html>
+<?php
+
+include_once "conn.php";
+include_once "function.php";
+
+
+
+$submit = filter_input(INPUT_POST, 'submitbarang');
+if (isset($submit)) {
+    $i = 0;
+    while ($i < sizeof($_SESSION['farray'])) {
+        $name = 'quantity' . $i;
+        $_SESSION['arrayqty'][$i] = filter_input(INPUT_POST, $name);
+        $i++;
+    }
+
+    header('location:index.php?menu=cartorder');
+
+}
+
+
+
+?>
+<style>
+    body{
+        zoom: 70%;
+    }
+</style>
 <html lang="en">
-
-
-
-
     <head>
         <meta charset="UTF-8">
         <meta name="description" content="">
@@ -89,6 +113,7 @@
                             <li class="active"><a href="index.php?menu=cart">Cart</a></li><?php } ?>
                         <?php if ($_SESSION['approved_user'] == TRUE) { ?>
                             <li><a href="index.php?menu=check">Checkout</a></li><?php } ?>
+                        <?php if ($_SESSION['approved_user']==TRUE AND $_SESSION['userid']==1){ ?><li><a href="index.php?menu=report">Report</a></li><?php } ?>
                     </ul>
                 </nav>
                 <br><br>
@@ -104,47 +129,7 @@
             </header>
             <!-- Header Area End -->
 
-            <?php
 
-            include_once "conn.php";
-            include_once "function.php";
-            if (isset($_SESSION['keranjang'])) {
-            $arrayqty = array();
-
-            $array = array_unique($_SESSION['keranjang'], SORT_REGULAR);
-            $x = array_intersect($array, $array);
-            $y = array_diff($array, $array);
-            $farray = array_merge($x, $y);
-            $_SESSION['arrayqty'] = array();
-
-
-            $e = (int)0;
-            if ($_SESSION['arrayqty'] == null) {
-                while ($e < sizeof($farray)) {
-                    $arrayqty[$e] = 1;
-                    $e++;
-                }
-                $_SESSION['arrayqty'] = $arrayqty;
-            }
-
-
-            $submit = filter_input(INPUT_POST, 'submitbarang');
-            if (isset($submit)) {
-                $i = 0;
-                while ($i < sizeof($farray)) {
-                    $name = 'quantity' . $i;
-                    $_SESSION['arrayqty'][$i] = filter_input(INPUT_POST, $name);
-                    $i++;
-                }
-
-
-                header('location:index.php?menu=cartorder');
-
-            }
-            //var_dump($_SESSION['arrayqty']);exit;
-
-
-            ?>
 
             <div class="cart-table-area ">
                 <div class="container-fluid">
@@ -165,6 +150,26 @@
                                             <th>Quantity</th>
                                         </tr>
                                         </thead>
+                                        <?php
+                                        if (isset($_SESSION['keranjang'])) {
+                                        $arrayqty = array();
+
+                                        $array = array_unique($_SESSION['keranjang'], SORT_REGULAR);
+                                        $x = array_intersect($array, $array);
+                                        $y = array_diff($array, $array);
+                                        $farray = array_merge($x, $y);
+                                        $_SESSION['farray']=$farray;
+
+
+//                                        $e = 0;
+//                                        if (isset($_SESSION['arrayqty'])) {
+//                                            while ($e < sizeof($farray)) {
+//                                                $arrayqty[$e] = 1;
+//                                                $e++;
+//                                            }
+//                                            $_SESSION['arrayqty'] = $arrayqty;
+//                                        }
+                                        ?>
                                         <tbody>
                                         <?php
                                         $i = 0;
@@ -204,7 +209,7 @@
                                                             <input type="number" class="qty-text"
                                                                    id="qty<?php echo $i ?>"
                                                                    step="1" min="0" max="300" name="quantity<?= $i; ?>"
-                                                                   value="<?php echo $_SESSION['arrayqty'][$i] ?>"/>
+                                                                   value="<?php if (isset($_SESSION['arrayqty'][$i]) AND $_SESSION['arrayqty'][$i]!=null){echo $_SESSION['arrayqty'][$i];}  else{echo 1;} ?>"/>
 
                                                             <span class="qty-plus"
                                                                   onclick="var effect = document.getElementById('qty<?php echo $i ?>'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i
@@ -221,6 +226,8 @@
                                         }
                                         ?>
 
+
+
                                         </tbody>
                                     </table>
                                     <table>
@@ -230,7 +237,7 @@
                                                        class="btn amado-btn w-100"/>
                                             <?php } else { ?>
                                                 <input type="submit" value="ORDER" class="btn amado-btn w-100"/>
-                                            <?php } ?>
+                                            <?php } }?>
                                         </tr>
                                     </table>
                                 </form>
@@ -254,8 +261,5 @@
     </form>
 
     </body>
-    <?php
-}
-?>
 
 </html>

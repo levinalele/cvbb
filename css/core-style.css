@@ -24,6 +24,7 @@
   padding: 0; }
 
 body {
+  zoom: 70%;
   font-family: "helveticaneuemedium";
   font-size: 16px; }
 
@@ -243,6 +244,7 @@ img {
     display: block; } }
 
 .mobile-nav {
+  zoom: 70%;
   position: fixed;
   width: 100%;
   height: 70px;
@@ -380,6 +382,7 @@ img {
 
 /* :: 5.0 Welcome Area CSS */
 .main-content-wrapper {
+  zoom: 70%;
   position: relative;
   z-index: 1;
   -webkit-transition-duration: 500ms;
@@ -388,6 +391,7 @@ img {
   flex-wrap: wrap; }
   @media only screen and (max-width: 767px) {
     .main-content-wrapper {
+      zoom: 70%;
       margin-top: 70px;
       z-index: 100; } }
   .main-content-wrapper .header-area {
