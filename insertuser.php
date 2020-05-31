@@ -18,7 +18,6 @@ include_once "function.php";
 $btnSubmit = FILTER_INPUT(INPUT_POST, 'btnSubmitUser');
 if($btnSubmit)
 {
-
     $name = FILTER_INPUT(INPUT_POST, 'kName');
     $tlp = FILTER_INPUT(INPUT_POST, 'kTlp');
     $email = FILTER_INPUT(INPUT_POST, 'kEmail');
@@ -171,32 +170,32 @@ if($btnCommand == 'update'){
                                     <p>Full Name :</p>
                                 </div>
                                 <div class="col-12 mb-3">
-                                    <input type="text" class="form-control" name="kName" placeholder="" value="">
+                                    <input type="text" class="form-control" name="kName" placeholder="" value="" required>
                                 </div>
                                 <div class="col-md-12 ">
                                     <p>Phone Number :</p>
                                 </div>
                                 <div class="col-12 mb-3">
-                                    <input type="text" class="form-control" name="kTlp" placeholder="" value="">
+                                    <input type="text" class="form-control" name="kTlp" placeholder="" value="" required>
                                 </div>
                                 <div class="col-md-12 ">
                                     <p>Email :</p>
                                 </div>
                                 <div class="col-12 mb-3">
-                                    <input type="email" class="form-control" name="kEmail" placeholder="" value="">
+                                    <input type="email" class="form-control" name="kEmail" placeholder="" value="" required>
                                 </div>
                                 <div class="col-md-12 ">
                                     <p>Address :</p>
                                 </div>
                                 <div class="col-12 mb-3">
-                                    <input type="text" class="form-control" name="kAlamat" placeholder="" value="">
+                                    <input type="text" class="form-control" name="kAlamat" placeholder="" value="" required>
                                 </div>
 
                                 <div class="col-md-12 ">
                                     <p>Password :</p>
                                 </div>
                                 <div class="col-12 mb-3">
-                                    <input type="password" class="form-control" name="kPass" placeholder="" value="">
+                                    <input type="password" class="form-control" name="kPass" placeholder="" value="" required>
                                 </div>
                                 <div class="col-md-12 ">
                                     <p>Photo :</p>

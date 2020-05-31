@@ -10,7 +10,6 @@ include_once "conn.php";
 include_once "function.php";
 
 
-
 $btnReset = FILTER_INPUT(INPUT_POST, 'btnForgetPassword');
 if($btnReset)
 {
@@ -23,11 +22,9 @@ if($btnReset)
     else{
         $msg=" ";
     }
-
-
-
 }
 ?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,7 +60,7 @@ if($btnReset)
                     <form method="POST" class="register-form" id="login-form">
                         <div class="form-group">
                             <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                            <input type="text" name="email"  placeholder="Your Email"/>
+                            <input type="text" name="email"  placeholder="Your Email" required/>
                         </div>
                         <div><?php
                             if (FILTER_INPUT(INPUT_POST, 'email') != null){

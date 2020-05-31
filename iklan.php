@@ -178,9 +178,9 @@ if($btnCommand == 'delete'){
                         <table class="table table-responsive">
                             <thead>
                             <tr>
-                                <th><center>Category Photo</center></th>
-                                <th><center>Category Name</center></th>
-                                <th><center>Keterangan</center></th>
+                                <th><center>Advertisement Photo</center></th>
+                                <th><center>Name</center></th>
+                                <th><center>Status</center></th>
                                 <th></th>
                             </tr>
                             </thead>

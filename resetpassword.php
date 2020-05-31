@@ -31,11 +31,6 @@ if($btnReset)
         header("location:index.php?menu=login");
     }
     else{$msg = "Password doesn't match";}
-
-
-
-
-
 }
 ?>
 
@@ -89,7 +84,7 @@ if($btnReset)
                 </div>
                 <div class="signup-image">
                     <figure><img src="images/signup-image.jpg" alt="sing up image"></figure>
-                    <a href="login.php" class="signup-image-link">I am already member</a>
+                    <a href="index.php?menu=login" class="signup-image-link">I am already remember</a>
                 </div>
             </div>
         </div>

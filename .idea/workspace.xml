@@ -40,6 +40,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -102,7 +103,10 @@
       <workItem from="1590343303701" duration="8826000" />
       <workItem from="1590378242431" duration="276000" />
       <workItem from="1590385252856" duration="651000" />
-      <workItem from="1590414993139" duration="5266000" />
+      <workItem from="1590414993139" duration="5968000" />
+      <workItem from="1590600089007" duration="910000" />
+      <workItem from="1590811646180" duration="3225000" />
+      <workItem from="1590903355104" duration="19690000" />
     </task>
     <servers />
   </component>
@@ -110,10 +114,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="371" y="88" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590342285069">
+    <state x="371" y="88" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590600229521">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="371" y="88" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1590342285069" />
+    <state x="371" y="88" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1590600229521" />
     <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1590417306096">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -174,10 +178,14 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="795" y="264" key="NewPhpFileDialog/0.0.1280.680@0.0.1280.680" timestamp="1590330258186" />
-    <state x="337" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1590415018293">
+    <state x="142" y="0" key="SettingsEditor" timestamp="1590912117940">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="337" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1590415018293" />
+    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1590912117940" />
+    <state x="337" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1590903359988">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="337" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1590903359988" />
     <state x="297" y="151" key="run.anything.popup" timestamp="1589343940031">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

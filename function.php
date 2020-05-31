@@ -3,10 +3,6 @@
 require("phpmailer/class.phpmailer.php");
 require("phpmailer/language/phpmailer.lang-en.php");
 
-$cars = array();
-array_push($cars,1);
-array_push($cars,2);
-array_push($cars,3);
 
 function masuk($username, $password)
 {
@@ -235,9 +231,7 @@ function insertPembelian($nama,$tlp,$email,$totalharga,$status,$idkasir)
     $link = get_koneksi();
     $msg = 'gagal';
     try {
-        //begin transaksi #
         $link->beginTransaction();
-
         $qry = "INSERT INTO pembelian(nama_pembeli,telepon_pembeli,email_pembeli,totalharga,status_pembayaran,id_kasir) VALUES (?,?,?,?,?,?)";
         $stmt = $link->prepare($qry);
         //parameter #
@@ -247,7 +241,6 @@ function insertPembelian($nama,$tlp,$email,$totalharga,$status,$idkasir)
         $stmt->bindParam(4, $totalharga, PDO::PARAM_INT);
         $stmt->bindParam(5, $status, PDO::PARAM_INT);
         $stmt->bindParam(6, $idkasir, PDO::PARAM_INT);
-        //execute
         $stmt->execute();
         $link->commit();
         $msg = 'sukses';
@@ -259,6 +252,7 @@ function insertPembelian($nama,$tlp,$email,$totalharga,$status,$idkasir)
     close_koneksi($link);
     return $msg;
 }
+
 
 function insertcatBarang($idP,$idB,$qty)
 {
@@ -637,7 +631,6 @@ function insertBarang($harga,$nama,$foto,$satuan,$status,$cat)
     $link = get_koneksi();
     $msg = 'gagal';
     try {
-        //begin transaksi #
         $link->beginTransaction();
         $qry = "INSERT INTO barang(harga_barang,nama_barang,images_barang,satuan_barang,status_barang,id_category) VALUES (?,?,?,?,?,?)";
         $stmt = $link->prepare($qry);
@@ -707,20 +700,18 @@ function forgotPassword($email)
         $mailer->Username = 'cvbintangbangunann@gmail.com';
         // Change this to your gmail password
         $mailer->Password = 'cvbb12345';
-
         $mailer->From = 'cvbintangbangunann@gmail.com';
-
         $mailer->FromName = 'CV Bintang Bangunan';
         $key = rand(1,1000000);
         insertKey($key,$email);
-
-        $body = "<p><a href=\"http://localhost/cvbb/index.php?menu=resetpassword&email=$email&key=$key\">Click Here to reset password</a></p>";
+        $body = "<h3>CV Bintang Bangunan</h3><p>Salam hangat dari CV Bintang Bangunan,</p>
+                 <p>Pastikan anda tidak membagikan link ini untuk menjaga keamanan password anda.</p>
+                 <p>untuk mengubah password anda klik pada link di bawah ini.</p><br>
+                 <p><a href=\"http://localhost/cvbb/index.php?menu=resetpassword&email=$email&key=$key\">Click Here to reset password</a></p>";
         $mailer->IsHTML(true);
         $mailer->Body = $body;
         $mailer->Subject = 'Reset Password';
-
         $mailer->AddAddress($email);
-
         if (!$mailer->Send()) {
            echo "Message was not sent<br/ >";
            echo "Mailer Error: " . $mailer->ErrorInfo;

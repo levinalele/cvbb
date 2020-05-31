@@ -11,10 +11,7 @@ include_once "function.php";
 
 if (!isset($_SESSION['keranjang'])){
     $_SESSION['keranjang'] = array();}
-
 $i = 0;
-
-
 $btnCommand = FILTER_INPUT(INPUT_GET,'command');
 if($btnCommand == 'add'){
 
@@ -22,8 +19,6 @@ if($btnCommand == 'add'){
     array_push($_SESSION['keranjang'],$id);
 
     header('location:index.php?menu=cart');
-
-
 }
 
 

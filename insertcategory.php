@@ -28,8 +28,6 @@ if($btnSubmit)
 $btnCommand = FILTER_INPUT(INPUT_GET,'command');
 if($btnCommand == 'update'){
         $id = FILTER_INPUT(INPUT_GET,'id');
-        //kalo di vardum idnya dapet
-        //salahnya disini mungkin sama di function
         $data = getOneCategory($id);
         $result = $data -> fetch();
         $statusCatLama = $result['status_category'];

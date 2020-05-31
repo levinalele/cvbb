@@ -51,8 +51,8 @@ if($btnCommand == 'pay'){
     $stat = 1;
     $idKasir = $_SESSION['userid'];
     Pay($stat,$idKasir,$id);
-
 }
+
 $btnCommand = FILTER_INPUT(INPUT_GET,'command');
 if($btnCommand == 'delete'){
     $id = FILTER_INPUT(INPUT_GET,'id');

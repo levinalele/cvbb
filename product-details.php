@@ -42,8 +42,6 @@ if($btnSubmit)
 $btnCommand = FILTER_INPUT(INPUT_GET,'command');
 if($btnCommand == 'update'){
     $id = FILTER_INPUT(INPUT_GET,'id');
-    //kalo di vardum idnya dapet
-    //salahnya disini mungkin sama di function
     $data = getOneBarang($id);
     $result = $data -> fetch();
     $statusBrgLama = $result['status_barang'];
@@ -52,7 +50,6 @@ if($btnCommand == 'update'){
 
     updateBarang($statbaru,$id);
     header('location:index.php?menu=barang');
-
 }
 
 ?>
@@ -199,7 +196,7 @@ if($btnCommand == 'update'){
                                                 </div>
 
                                                 <div class="col-md-12 ">
-                                                    <p>Images :</p>
+                                                    <p>Photo :</p>
                                                 </div>
                                                 <div class="col-12 mb-3">
                                                     <input type="file" class="form-control" name="images_barang" placeholder="Images" value="">

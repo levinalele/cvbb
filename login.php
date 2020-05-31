@@ -36,32 +36,28 @@
                 </div>
 
                 <?php
-
-
-
                 if($_SESSION['approved_user'] == FALSE) {
                 $btnLogin = FILTER_INPUT(INPUT_POST,'btnLogin');
                 if(isset($btnLogin)) {
-
                     $username = FILTER_INPUT(INPUT_POST, 'uname');
                     $password = FILTER_INPUT(INPUT_POST, 'pwd');
-
-
                     $data = masuk($username, $password);
                     $result = $data->fetch();
-                    if(isset($result) && $result['id_kasir'] > 0 && $result['status_kasir']==1) {
+                    if ($result==FALSE){
+                        $_SESSION['approved_user'] = FALSE;
+                        $_SESSION['msg']='incorrect password or email';
+                    }
+                    else if(isset($result) && $result['id_kasir'] > 0 && $result['status_kasir']==1) {
                         $_SESSION['approved_user'] = TRUE;
                         $_SESSION['userid'] = $result['id_kasir'];
                         $_SESSION['username'] = $result['email_kasir'];
                         $_SESSION['name'] = $result['nama_kasir'];
                         header('location:index.php');
-
                     }
                     else{
                         $_SESSION['approved_user'] = FALSE;
                         $_SESSION['msg']='user has been deactive';
                     }
-
                 }
                 ?>
 
@@ -70,11 +66,11 @@
                     <form method="POST" class="register-form" id="login-form">
                         <div class="form-group">
                             <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                            <input type="text" name="uname" id="your_name" placeholder="Your Email"/>
+                            <input type="text" name="uname" id="your_name" placeholder="Your Email" required/>
                         </div>
                         <div class="form-group">
                             <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                            <input type="password" name="pwd" id="your_pass" placeholder="Password"/>
+                            <input type="password" name="pwd" id="your_pass" placeholder="Password" required/>
                         </div>
                         <div><a href="index.php?menu=forgetpassword" ><span style="color: #0b0b0b">Forget Password</span> </a></div>
                         <div><?php if (isset($_SESSION['msg'])){echo  $_SESSION['msg']; unset($_SESSION['msg']);} ?></div>

@@ -2,7 +2,7 @@
 <html lang="en">
 <style>
     body{
-        zoom: 70%;
+        zoom: 80%;
     }
 </style>
 

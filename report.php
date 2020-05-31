@@ -416,7 +416,7 @@ if ($btnSubmit) {
         <?php
         if (isset($_SESSION['choice']) AND $_SESSION['choice'] == 'All') {
             ?>
-            <div style="margin-top: 50px">
+            <div style="margin-top: 50px; margin-left: 10px; margin-right: 10px">
                 <table class="display" id="tableid">
                     <thead>
                     <tr>
@@ -458,7 +458,7 @@ if ($btnSubmit) {
             </div>
         <?php } else if (isset($_SESSION['choice'])) {
             if ($_SESSION['choice'] == 'Date' OR $_SESSION['choice'] == 'Month' OR $_SESSION['choice'] == 'Year') { ?>
-                <div style="margin-top: 50px">
+                <div style="margin-top: 50px; margin-left: 10px; margin-right: 10px">
                 <table id="tableid">
                 <thead>
                 <tr>
@@ -521,8 +521,7 @@ if ($btnSubmit) {
 <!-- Active js -->
 <script src="js/active.js"></script>
 
-<script type="text/javascript" src="jquery-3.4.1.js"></script>
-<script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+
 
 <script type="text/javascript" src="datatables/datatables.js"></script>
 <script type="text/javascript" src="datatables/datatables.min.js"></script>

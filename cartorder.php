@@ -6,8 +6,6 @@
 include_once "conn.php";
 include_once "function.php";
 
-
-
 $array = array_unique($_SESSION['keranjang'], SORT_REGULAR);
 $x = array_intersect($array, $array);
 $y = array_diff($array, $array);
@@ -26,12 +24,10 @@ if($btnSubmit)
     $stat = 0;
     $rand = random_int(0,100000000);
     $idkasir =1;
-//    if ($_SESSION['random'] == null){$_SESSION['random'] = $rand;}
-//    $_SESSION['random'];exit;
+
     $tz = 'Asia/Jakarta';
     $dt = new DateTime("now", new DateTimeZone($tz));
     $timestamp = $dt->format('Y-m-d G:i:s');
-
 
     insertPembelian($name,$tlp,$email,$total,$stat,$idkasir);
 
@@ -50,13 +46,7 @@ if($btnSubmit)
     session_destroy();
     header("location:index.php?menu=thankyou");
 
-
 }
-
-
-
-
-
 
 ?>
 <style>

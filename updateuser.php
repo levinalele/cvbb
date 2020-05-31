@@ -36,7 +36,6 @@ if($btnSubmit)
 $btnReset = FILTER_INPUT(INPUT_POST, 'btnForgetPassword');
 if($btnReset)
 {
-
     $email = FILTER_INPUT(INPUT_POST, 'email_kasir');
     forgotPassword($email);
 }
@@ -140,7 +139,7 @@ if($btnReset)
                     <div class="checkout_details_area mt-50 clearfix">
 
                         <div class="cart-title">
-                            <h2>Insert User</h2>
+                            <h2>Update User</h2>
                         </div>
 
                         <form action="" method="post">
