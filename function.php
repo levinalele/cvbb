@@ -378,6 +378,8 @@ function updateHargaBelian($harga,$id)
 
 }
 
+
+
 function Pay($stat,$idKasir,$id)
 {
     $link = get_koneksi();

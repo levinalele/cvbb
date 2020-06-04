@@ -12,6 +12,8 @@ include_once "conn.php";
 include_once "function.php";
 
 
+
+
 $btnSubmit = FILTER_INPUT(INPUT_POST, 'btnSubmitChoice');
 if ($btnSubmit) {
 
@@ -19,6 +21,12 @@ if ($btnSubmit) {
     if (isset($_SESSION['fromdate']) AND isset($_SESSION['todate'])) {
         unset($_SESSION["fromdate"]);
         unset($_SESSION["todate"]);
+    }
+    if(isset($_SESSION['month'])){
+        unset($_SESSION['month']);
+    }
+    if(isset($_SESSION['year'])){
+        unset($_SESSION['year']);
     }
     $_SESSION['choice'] = $choice;
 }
@@ -253,10 +261,14 @@ if ($btnSubmit) {
                         <td width="100">
 
                             <select name="choice">
-                                <option value=""><?php if (isset($_SESSION['choice'])) {
+                                <option value="<?php if (isset($_SESSION['choice'])) {
+                                    echo $_SESSION['choice'];
+                                } else {
+                                    echo 'All';
+                                } ?>"><?php if (isset($_SESSION['choice'])) {
                                         echo $_SESSION['choice'];
                                     } else {
-                                        echo 'Select Option';
+                                        echo 'All';
                                     } ?></option>
                                 <option value="All">All</option>
                                 <option value="Date">Date</option>
@@ -285,7 +297,7 @@ if ($btnSubmit) {
                                     <p> From :</p>
                                 </td>
                                 <td>
-                                    <input type="date" class="form-control" name="fromdate"
+                                    <input type="date" class="form-control" name="fromdate" id="fromdate"
                                            placeholder="<?php if (isset($_SESSION['fromdate'])) {
                                                echo substr($_SESSION['fromdate'], 0, 10);
                                            } else {
@@ -301,7 +313,7 @@ if ($btnSubmit) {
                                     <p> To :</p>
                                 </td>
                                 <td>
-                                    <input type="date" class="form-control" name="todate"
+                                    <input type="date" class="form-control" name="todate" id="todate"
                                            placeholder="<?php if (isset($_SESSION['todate'])) {
                                                echo substr($_SESSION['todate'], 0, 10);
                                            } else {
@@ -337,28 +349,64 @@ if ($btnSubmit) {
                                     <p> From :</p>
                                 </td>
                                 <td width="100">
-                                    <select name="choicemonth">
+                                    <select name="choicemonth" id="choicemonth">
                                         <option value="<?php if (isset($_SESSION['month'])) {
+
                                             echo $_SESSION['month'];
                                         } else {
-                                            echo "";
+                                            echo date('m');
                                         } ?>"><?php if (isset($_SESSION['month'])) {
-                                                echo $_SESSION['month'];
+                                                if($_SESSION['month'] == 01){
+                                                    echo 'January';
+                                                }
+                                                if($_SESSION['month'] == 02){
+                                                    echo 'February';
+                                                }
+                                                if($_SESSION['month'] == 03){
+                                                    echo 'March';
+                                                }
+                                                if($_SESSION['month'] == 04){
+                                                    echo 'April';
+                                                }
+                                                if($_SESSION['month'] == 05){
+                                                    echo 'May';
+                                                }
+                                                if($_SESSION['month'] == 06){
+                                                    echo 'June';
+                                                }
+                                                if($_SESSION['month'] == 07){
+                                                    echo 'July';
+                                                }
+                                                if($_SESSION['month'] == '08'){
+                                                    echo 'August';
+                                                }
+                                                if($_SESSION['month'] == '09'){
+                                                    echo 'September';
+                                                }
+                                                if($_SESSION['month'] == 10){
+                                                    echo 'October';
+                                                }
+                                                if($_SESSION['month'] == 11){
+                                                    echo 'November';
+                                                }
+                                                if($_SESSION['month'] == 12){
+                                                    echo 'December';
+                                                }
                                             } else {
-                                                echo "";
+                                                echo date('F');
                                             } ?></option>
-                                        <option value="01">Januari</option>
-                                        <option value="02">Februari</option>
-                                        <option value="03">Maret</option>
+                                        <option value="01">January</option>
+                                        <option value="02">February</option>
+                                        <option value="03">March</option>
                                         <option value="04">April</option>
-                                        <option value="05">Mei</option>
-                                        <option value="06">Juni</option>
-                                        <option value="07">Juli</option>
-                                        <option value="08">Agustus</option>
+                                        <option value="05">May</option>
+                                        <option value="06">June</option>
+                                        <option value="07">July</option>
+                                        <option value="08">August</option>
                                         <option value="09">September</option>
-                                        <option value="10">Oktober</option>
+                                        <option value="10">October</option>
                                         <option value="11">November</option>
-                                        <option value="12">Desember</option>
+                                        <option value="12">December</option>
                                     </select>
                                 </td>
                                 <td>
@@ -390,9 +438,9 @@ if ($btnSubmit) {
                                     <select name="choiceyear">
                                         <option value="<?php if (isset($_SESSION['year'])) {
                                             echo $_SESSION['year'];
-                                        } else echo "" ?>"><?php if (isset($_SESSION['year'])) {
+                                        } else echo $nyear ?>"><?php if (isset($_SESSION['year'])) {
                                                 echo $_SESSION['year'];
-                                            } else echo "" ?></option>
+                                            } else echo $nyear ?></option>
                                         <?php while ($yy <= $nyear) { ?>
                                             <option value="<?php echo $yy ?>"><?php echo $yy ?></option>
                                             <?php $yy += 1;
@@ -422,6 +470,7 @@ if ($btnSubmit) {
                     <tr>
                     <th>Tanggal</th>
                     <th>ID Pembelian</th>
+                    <th>Nama Pembeli</th>
                     <th>Nama Barang</th>
                     <th>Harga</th>
                     <th>Jumlah</th>
@@ -435,13 +484,14 @@ if ($btnSubmit) {
                     while ($data = $hasil->fetch()) {
                         ?>
                         <tr>
-                            <td><?php echo substr($data['date'], 0, 10) ?></td>
+                            <td><?php echo substr($data['date'], 0, 16) ?></td>
                             <td><?php echo $data['id_pembelian'] ?></td>
+                            <td><?php echo $data['nama_pembeli'] ?></td>
                             <td><?php echo $data['nama_barang'] ?></td>
-                            <td><?php echo $data['harga_barang'] ?></td>
+                            <td><?php echo 'Rp ', number_format($data['harga_barang'],2,',','.') ?></td>
                             <td><?php echo $data['qty_barang'] ?></td>
                             <td><?php $subtotal = $data['harga_barang'] * $data['qty_barang'];
-                                echo $subtotal; ?></td>
+                                echo 'Rp ', number_format($subtotal,2,',','.'); ?></td>
                         </tr>
                         <?php $totalsemua += $subtotal;
                     } ?>
@@ -464,6 +514,7 @@ if ($btnSubmit) {
                 <tr>
                     <th>Tanggal</th>
                     <th>ID Pembelian</th>
+                    <th>Nama Pembeli</th>
                     <th>Nama Barang</th>
                     <th>Harga</th>
                     <th>Jumlah</th>
@@ -479,13 +530,14 @@ if ($btnSubmit) {
                     while ($data = $hasil->fetch()) {
                         ?>
                         <tr>
-                            <td><?php echo substr($data['date'], 0, 10) ?></td>
+                            <td><?php echo substr($data['date'], 0, 16) ?></td>
                             <td><?php echo $data['id_pembelian'] ?></td>
+                            <td><?php echo $data['nama_pembeli'] ?></td>
                             <td><?php echo $data['nama_barang'] ?></td>
-                            <td><?php echo $data['harga_barang'] ?></td>
+                            <td><?php echo 'Rp ',number_format($data['harga_barang'],2,',','.') ?></td>
                             <td><?php echo $data['qty_barang'] ?></td>
                             <td><?php $subtotal = $data['harga_barang'] * $data['qty_barang'];
-                                echo $subtotal; ?></td>
+                                echo 'Rp ', number_format($subtotal,2,',','.'); ?></td>
                         </tr>
                         <?php $totalsemua += $subtotal;
                     } ?>
@@ -531,9 +583,42 @@ if ($btnSubmit) {
 
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#tableid').DataTable();
+        $('#tableid').DataTable({
+            order: [[ 0, 'desc' ]]
+        });
     });
+
+    <?php if (!isset($_SESSION['fromdate']) OR !isset($_SESSION['todate'])) {?>
+    $(document).ready( function() {
+        var now = new Date();
+
+        var day = ("0" + now.getDate()).slice(-2);
+        var month = ("0" + (now.getMonth() + 1)).slice(-2);
+
+        var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
+
+
+        $('#fromdate').val(today);
+        $('#todate').val(today);
+    });
+    <?php } ?>
+
+<!--    --><?php //if (!isset($_SESSION['month'])) {?>
+//    $(document).ready( function() {
+//        var now = new Date();
+//
+//        var day = ("0" + now.getDate()).slice(-2);
+//        var month = ("0" + (now.getMonth() + 1)).slice(-2);
+//
+//        var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
+//
+//
+//        $('#choicemonth').val(month);
+//    });
+//    <?php //} ?>
+
 </script>
+
 
 </body>
 

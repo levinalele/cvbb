@@ -33,7 +33,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../pw2_prak2_1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cinema" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -107,6 +107,10 @@
       <workItem from="1590600089007" duration="910000" />
       <workItem from="1590811646180" duration="3225000" />
       <workItem from="1590903355104" duration="19690000" />
+      <workItem from="1591087188147" duration="1641000" />
+      <workItem from="1591191873537" duration="832000" />
+      <workItem from="1591236369594" duration="750000" />
+      <workItem from="1591250918555" duration="12460000" />
     </task>
     <servers />
   </component>
@@ -118,10 +122,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="371" y="88" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1590600229521" />
-    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1590417306096">
+    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1591192108108">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1590417306096" />
+    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1591192108108" />
     <state width="1237" height="204" key="GridCell.Tab.0.bottom" timestamp="1587852002661">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -182,14 +186,14 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1590912117940" />
-    <state x="337" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1590903359988">
+    <state x="337" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1591295364436">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="337" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1590903359988" />
-    <state x="297" y="151" key="run.anything.popup" timestamp="1589343940031">
+    <state x="337" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1591295364436" />
+    <state x="297" y="151" key="run.anything.popup" timestamp="1591259823097">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="297" y="151" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1589343940031" />
+    <state x="297" y="151" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1591259823097" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1587658631955">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

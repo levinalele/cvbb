@@ -208,7 +208,7 @@ if (isset($submit)) {
 
                                                             <input type="number" class="qty-text"
                                                                    id="qty<?php echo $i ?>"
-                                                                   step="1" min="0" max="300" name="quantity<?= $i; ?>"
+                                                                   step="1" min="0" max="1000" name="quantity<?= $i; ?>"
                                                                    value="<?php if (isset($_SESSION['arrayqty'][$i]) AND $_SESSION['arrayqty'][$i]!=null){echo $_SESSION['arrayqty'][$i];}  else{echo 1;} ?>"/>
 
                                                             <span class="qty-plus"

@@ -61,6 +61,31 @@ if($btnCommand == 'delete'){
 
 }
 
+$submit = filter_input(INPUT_POST, 'submitfix');
+if (isset($submit)) {
+//    var_dump($_SESSION['idfix']);
+//    var_dump($_SESSION['brgfix']);
+//    var_dump($_SESSION['afix']);exit;
+    $i = 0;
+    while ($i < sizeof($_SESSION['afix'])) {
+        $name = 'quantity' . $i;
+        $_SESSION['arrayfixqty'][$i] = filter_input(INPUT_POST, $name);
+        $i++;
+    }
+    $e = 0;
+    while ($e < sizeof($_SESSION['afix'])) {
+        updateBarangBelian($_SESSION['arrayfixqty'][$e],$_SESSION['idfix'],$_SESSION['brgfix'][$e]);
+        $e++;
+    }
+    $hasilll = getAllKeranjangID($_SESSION['idfix']);
+    $total =0;
+    while ($dataaa = $hasilll->fetch()) {
+        $total += $dataaa['harga_barang'] * $dataaa['qty_barang'];
+    }
+    updateHargaBelian($total,$_SESSION['idfix']);
+
+}
+
 
 
 ?>
@@ -203,7 +228,7 @@ if($btnCommand == 'delete'){
 
 
                         <div class="cart-table clearfix">
-
+                            <form method="post">
                             <table class="table table-responsive">
                                 <thead>
                                 <tr>
@@ -217,6 +242,7 @@ if($btnCommand == 'delete'){
                                 <?php
                                 $id = FILTER_INPUT(INPUT_GET,'id');
                                 $hasill = getAllKeranjangID($id);
+                                $i=0;
                                 while ($dataa = $hasill->fetch()) {
                                     ?>
                                     <tr>
@@ -234,22 +260,48 @@ if($btnCommand == 'delete'){
                                             <div class="qty-btn d-flex">
                                                 <p>Qty</p>
                                                 <div class="quantity">
+                                                    <?php $_SESSION['idfix']=$id ?>
+                                                    <?php $_SESSION['brgfix'][$i]=$dataa['id_barang'] ?>
+                                                    <?php $_SESSION['afix'][$i]=$dataa['qty_barang'] ?>
+<!--                                                    buat kalo mau + atau - nya langsung update-->
+<!--                                                    mines(--><?php //echo $id ?><!--,--><?php //echo $dataa['id_barang']?><!--,--><?php //if ($dataa['qty_barang'] != 0){echo  $dataa['qty_barang']-1;}else{echo 0;} ?><!--);-->
+<!--                                                    plus(--><?php //echo $id ?><!--,--><?php //echo $dataa['id_barang']?><!--,--><?php //echo  $dataa['qty_barang']+1;?><!--);-->
                                                     <span class="qty-minus"
-                                                          onclick="var effect = document.getElementById('qty<?php echo $dataa['id_barang'] ?>'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--; mines(<?php echo $id ?>,<?php echo $dataa['id_barang']?>,<?php if ($dataa['qty_barang'] != 0){echo  $dataa['qty_barang']-1;}else{echo 0;} ?>);return false;"><i
+                                                          onclick="var effect = document.getElementById('qty<?php echo $dataa['id_barang'] ?>'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 0 ) effect.value--; return false;"><i
                                                             class="fa fa-minus" aria-hidden="true" style="margin-top: 15px"></i></span>
-                                                    <input type="number" class="qty-text" id="qty<?php echo $dataa['id_barang']?>" step="1" min="1"
-                                                           max="300" name="quantity<?php echo $dataa['id_barang']?>" value="<?php echo $dataa['qty_barang'] ?>">
+                                                    <input type="number" class="qty-text" id="qty<?php echo $dataa['id_barang']?>" step="1" min="0"
+                                                           max="1000" name="quantity<?php echo $i ?>" value="<?php echo $dataa['qty_barang'] ?>">
                                                     <span class="qty-plus"
-                                                          onclick="var effect = document.getElementById('qty<?php echo $dataa['id_barang'] ?>'); var qty = effect.value; if( !isNaN( qty )) effect.value++;plus(<?php echo $id ?>,<?php echo $dataa['id_barang']?>,<?php echo  $dataa['qty_barang']+1;?>);return false;"><i
+                                                          onclick="var effect = document.getElementById('qty<?php echo $dataa['id_barang'] ?>'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i
                                                             class="fa fa-plus" aria-hidden="true" style="margin-top: 15px"></i>  </span>
                                                 </div>
                                             </div>
                                         </td>
                                     </tr>
-                                    <?php
-                                }
-                                ?>
 
+                                    <?php
+                                    $i+=1;
+                                }
+
+                                ?>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+
+                                    <td>
+                                        <input type="submit" name="submitfix" value="FIX ORDER" class="btn amado-btn w-100"/>
+                                    </td>
+
+                                </tr>
+
+                                </tbody>
+                            </table>
+                            </form>
+
+
+                            <table class="table table-responsive">
+                                <tbody>
                                 <tr bgcolor="#f8f8ff" style="margin-top: 20px">
                                     <td >
                                         <h6>Name        </h6>
@@ -273,8 +325,10 @@ if($btnCommand == 'delete'){
                                         <button name="btnCancel" onclick="DeletePembelian(<?php echo $id?>)" class="btn btn-outline-danger">Cancel Order</button>
                                     </td>
                                 </tr>
+
                                 </tbody>
                             </table>
+
                         </div>
                     </div>
                 </div>
