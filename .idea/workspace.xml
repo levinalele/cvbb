@@ -33,7 +33,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cinema" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../pwlroi" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -111,6 +111,7 @@
       <workItem from="1591191873537" duration="832000" />
       <workItem from="1591236369594" duration="750000" />
       <workItem from="1591250918555" duration="12460000" />
+      <workItem from="1591295361109" duration="1954000" />
     </task>
     <servers />
   </component>
@@ -122,10 +123,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="371" y="88" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1590600229521" />
-    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1591192108108">
+    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1591295926699">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1591192108108" />
+    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1591295926699" />
     <state width="1237" height="204" key="GridCell.Tab.0.bottom" timestamp="1587852002661">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
