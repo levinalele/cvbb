@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-    body {
-        zoom: 70%;
-    }
-</style>
+
 
 <?php
 
@@ -12,7 +8,7 @@ include_once "conn.php";
 include_once "function.php";
 
 
-
+if (!isset($_SESSION['choice'])){$_SESSION['choice'] = 'All';}
 
 $btnSubmit = FILTER_INPUT(INPUT_POST, 'btnSubmitChoice');
 if ($btnSubmit) {
@@ -162,6 +158,51 @@ if ($btnSubmit) {
         }
 
     </style>
+    <style>
+        html,
+        body {
+            margin: 0;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        ul.list-group {
+            margin-top: 10%;
+
+        }
+
+        .list-group-item {
+            border: 0 none;
+        }
+
+        li.list-group-item {
+            background-color: rgb(250, 250, 250);
+            margin-top: 2px;
+            margin-bottom: 1px;
+            padding-left: 17%;
+            padding-right: 17%;
+        }
+        .list-group-item.active {
+            z-index: 2;
+            color: #fff;
+            background-color: #ffeeba;
+            border-color: beige;
+        }
+
+        .list-group-item a {
+            font-style: normal;
+            font-size: 15px;
+            animation-duration: 1s;
+        }
+        .side a:hover {
+            margin-left: 20px;
+        }
+        .form-inline li a {
+            font-size: 15px;
+        }
+
+
+    </style>
 
 </head>
 
@@ -187,7 +228,7 @@ if ($btnSubmit) {
 <!-- Search Wrapper Area End -->
 
 <!-- ##### Main Content Wrapper Start ##### -->
-<div class="main-content-wrapper d-flex clearfix">
+<div class="main-content-wrapper d-flex clearfix" style="max-width: 1250px">
 
     <!-- Mobile Nav (max width 767px)-->
     <div class="mobile-nav">
@@ -201,62 +242,44 @@ if ($btnSubmit) {
         </div>
     </div>
 
-    <!-- Header Area Start -->
-    <header class="header-area clearfix">
-        <!-- Close Icon -->
-        <div class="nav-close">
-            <i class="fa fa-close" aria-hidden="true"></i>
-        </div>
-        <!-- Logo -->
-        <div class="logo">
-            <a href="home.php"><img src="img/core-img/logo.png" alt=""></a>
-        </div>
+    <div class="row h-100">
+        <div class="col-3 pr-0" style="background-color: rgb(250,250,250);">
+            <div class="row " style="width: 100%;height: 180px;">
+                <a class="" style="width: 80%;height:80%;margin-top: 5%;margin-left: 17%;" href="index.php"><img width="80%" src="img/core-img/logo.png" alt=""></a>
+            </div>
+            <div class="row w-100">
+                <ul class="list-group w-100">
+                    <li class="list-group-item side"><a href="index.php">Home</a></li>
+                    <?php if ($_SESSION['approved_user'] == FALSE) { ?><li class="list-group-item side"><a href="index.php?menu=shop">Shop</a></li> <?php } ?>
+                    <?php if ($_SESSION['approved_user'] == TRUE) { ?><li class="list-group-item side "><a href="index.php?menu=iklan">Advertisement</a></li><?php } ?>
+                    <?php if ($_SESSION['approved_user'] == TRUE and $_SESSION['userid'] == 1) { ?><li class="list-group-item side"><a href="index.php?menu=user">User</a></li><?php } ?>
+                    <?php if ($_SESSION['approved_user'] == TRUE) { ?><li class="list-group-item side"><a href="index.php?menu=cat">Category</a></li><?php } ?>
+                    <?php if ($_SESSION['approved_user'] == TRUE) { ?><li class="list-group-item side "><a href="index.php?menu=barang">Product</a></li><?php } ?>
+                    <?php if ($_SESSION['approved_user'] == FALSE) { ?><li class="list-group-item side"><a href="index.php?menu=cart">Cart</a></li><?php } ?>
+                    <?php if ($_SESSION['approved_user'] == TRUE) { ?><li class="list-group-item side "><a href="index.php?menu=check">Checkout</a></li><?php } ?>
+                    <?php if ($_SESSION['approved_user'] == TRUE and $_SESSION['userid'] == 1) { ?><li class="list-group-item side active"><a href="index.php?menu=report">Report</a></li><?php } ?>
+                    <li class=" d-flex justify-content-between list-group-item"><a href="https://id.pinterest.com/anssport/toko-bahan-bangunan/"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                        <a href="https://www.instagram.com/cv.bintangbangunan/?hl=id"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        <a href="https://www.facebook.com/bintang.bangunan.7?hc_ref=ARTrk7FZUGrVvfq_6oFUVxUsgYtB2zoHC3ZC0QG0-h76dbhoq9ppno8i5yfX3DEeA5I&fref=nf"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="https://twitter.com/carolineadjie"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    </li>
+                </ul>
+            </div>
 
-        <!-- Amado Nav -->
-        <nav class="amado-nav">
-            <ul>
-                <li><a href="index.php">Home</a></li>
-                <?php if ($_SESSION['approved_user'] == FALSE) { ?>
-                    <li><a href="index.php?menu=shop">Shop</a></li> <?php } ?>
-                <?php if ($_SESSION['approved_user'] == TRUE) { ?>
-                    <li><a href="index.php?menu=iklan">Advertisement</a></li><?php } ?>
-                <?php if ($_SESSION['approved_user'] == TRUE AND $_SESSION['userid'] == 1) { ?>
-                    <li><a href="index.php?menu=user">User</a></li><?php } ?>
-                <?php if ($_SESSION['approved_user'] == TRUE) { ?>
-                    <li><a href="index.php?menu=cat">Category</a></li><?php } ?>
-                <?php if ($_SESSION['approved_user'] == TRUE) { ?>
-                    <li><a href="index.php?menu=barang">Product</a></li><?php } ?>
-                <?php if ($_SESSION['approved_user'] == FALSE) { ?>
-                    <li><a href="index.php?menu=cart">Cart</a></li><?php } ?>
-                <?php if ($_SESSION['approved_user'] == TRUE) { ?>
-                    <li><a href="index.php?menu=check">Checkout</a></li><?php } ?>
-                <?php if ($_SESSION['approved_user'] == TRUE AND $_SESSION['userid'] == 1) { ?>
-                    <li class="active"><a href="index.php?menu=report">Report</a></li><?php } ?>
-            </ul>
-        </nav>
-        <br><br>
-        <!-- Social Button -->
-        <div class="social-info d-flex justify-content-between">
-            <a href="https://id.pinterest.com/anssport/toko-bahan-bangunan/"><i class="fa fa-pinterest"
-                                                                                aria-hidden="true"></i></a>
-            <a href="https://www.instagram.com/cv.bintangbangunan/?hl=id"><i class="fa fa-instagram"
-                                                                             aria-hidden="true"></i></a>
-            <a href="https://www.facebook.com/bintang.bangunan.7?hc_ref=ARTrk7FZUGrVvfq_6oFUVxUsgYtB2zoHC3ZC0QG0-h76dbhoq9ppno8i5yfX3DEeA5I&fref=nf"><i
-                        class="fa fa-facebook" aria-hidden="true"></i></a>
-            <a href="https://twitter.com/carolineadjie"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            <!-- <div class="social-info d-flex justify-content-between">
+
+            </div> -->
         </div>
-    </header>
-    <!-- Header Area End -->
 
     <!-- Product Catagories Area Start -->
 
-    <div class="products-catagories-area clearfix">
+    <div class="products-catagories-area clearfix" style="max-width: 100%">
         <div style="width: 30%;margin-left: 20px; margin-top: 50px">
             <form action="" method="POST">
                 <table>
                     <tr>
                         <td>
-                            <p>Filter By :</p>
+                            <p style="margin-right: 8px">Filter By </p>
                         </td>
                         <td width="100">
 
@@ -294,7 +317,7 @@ if ($btnSubmit) {
                         <table>
                             <tr>
                                 <td>
-                                    <p> From :</p>
+                                    <p style="margin-right: 8px"> From </p>
                                 </td>
                                 <td>
                                     <input type="date" class="form-control" name="fromdate" id="fromdate"
@@ -310,7 +333,7 @@ if ($btnSubmit) {
                                 </td>
                                 <td width="20"></td>
                                 <td>
-                                    <p> To :</p>
+                                    <p style="margin-left: 10px;margin-right: 8px"> To </p>
                                 </td>
                                 <td>
                                     <input type="date" class="form-control" name="todate" id="todate"
@@ -326,7 +349,7 @@ if ($btnSubmit) {
                                 </td>
                                 <td width="20"></td>
                                 <td>
-                                    <input type="submit" class="btn btn-dark" name="btnSubmitDate" value="Filter"/>
+                                    <input style="margin-left: 10px" type="submit" class="btn btn-dark" name="btnSubmitDate" value="Filter"/>
                                 </td>
                             </tr>
 
@@ -426,7 +449,7 @@ if ($btnSubmit) {
         if (isset($_SESSION['choice'])) {
             if ($_SESSION['choice'] == 'Year') {
                 $nyear = date("Y");
-                $yy = 2020 ?>
+                $yy = 2018 ?>
                 <div style="width: 50%;margin-left: 20px; margin-top: 20px">
                     <form action="" method="POST">
                         <table>
@@ -469,7 +492,7 @@ if ($btnSubmit) {
                     <thead>
                     <tr>
                     <th>Tanggal</th>
-                    <th>ID Pembelian</th>
+                    <th>ID</th>
                     <th>Nama Pembeli</th>
                     <th>Nama Barang</th>
                     <th>Harga</th>
@@ -513,7 +536,7 @@ if ($btnSubmit) {
                 <thead>
                 <tr>
                     <th>Tanggal</th>
-                    <th>ID Pembelian</th>
+                    <th>ID</th>
                     <th>Nama Pembeli</th>
                     <th>Nama Barang</th>
                     <th>Harga</th>

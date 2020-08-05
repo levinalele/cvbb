@@ -20,8 +20,11 @@ include_once "function.php";
     function updatebarang(id) {
         window.location="index.php?menu=barang&command=update&id="+id;
     }
-    function deleteiklan(id) {
-        window.location="index.php?menu=iklan&command=delete&id="+id;
+    function deleteiklan(id,$halaman) {
+        window.location="index.php?menu=iklan&command=delete&id="+id+"&halaman="+$halaman;
+    }
+    function resetpassuser(id) {
+        window.location="index.php?menu=user&command=reset&id="+id;
     }
     function updateuser(id) {
         window.location="index.php?menu=user&command=update&id="+id;
@@ -105,6 +108,9 @@ switch ($nav){
         break;
     case 'report' :
         include_once 'report.php';
+        break;
+    case 'history' :
+        include_once 'history.php';
         break;
     case 'logout':
     {

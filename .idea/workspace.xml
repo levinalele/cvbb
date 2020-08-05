@@ -33,7 +33,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../pwlroi" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cinema" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -111,7 +111,21 @@
       <workItem from="1591191873537" duration="832000" />
       <workItem from="1591236369594" duration="750000" />
       <workItem from="1591250918555" duration="12460000" />
-      <workItem from="1591295361109" duration="1954000" />
+      <workItem from="1591295361109" duration="2551000" />
+      <workItem from="1591327598753" duration="3898000" />
+      <workItem from="1591357908455" duration="1077000" />
+      <workItem from="1591367726077" duration="4250000" />
+      <workItem from="1591791350563" duration="1171000" />
+      <workItem from="1591855702056" duration="3002000" />
+      <workItem from="1592561752334" duration="1081000" />
+      <workItem from="1592563088146" duration="690000" />
+      <workItem from="1592564069825" duration="2370000" />
+      <workItem from="1592625195023" duration="7891000" />
+      <workItem from="1592634079550" duration="29543000" />
+      <workItem from="1592718383784" duration="17520000" />
+      <workItem from="1592758541633" duration="3304000" />
+      <workItem from="1594214396941" duration="1190000" />
+      <workItem from="1594649938917" duration="1835000" />
     </task>
     <servers />
   </component>
@@ -123,10 +137,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="371" y="88" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1590600229521" />
-    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1591295926699">
+    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1594651648789">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1591295926699" />
+    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1594651648789" />
     <state width="1237" height="204" key="GridCell.Tab.0.bottom" timestamp="1587852002661">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -179,25 +193,25 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="473" y="155" key="NewPhpClassDialog/0.0.1280.680@0.0.1280.680" timestamp="1589878165616" />
-    <state x="795" y="264" key="NewPhpFileDialog" timestamp="1590330258186">
+    <state x="795" y="264" key="NewPhpFileDialog" timestamp="1592734141604">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="795" y="264" key="NewPhpFileDialog/0.0.1280.680@0.0.1280.680" timestamp="1590330258186" />
+    <state x="795" y="264" key="NewPhpFileDialog/0.0.1280.680@0.0.1280.680" timestamp="1592734141604" />
     <state x="142" y="0" key="SettingsEditor" timestamp="1590912117940">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1590912117940" />
-    <state x="337" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1591295364436">
+    <state x="337" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1594649948119">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="337" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1591295364436" />
+    <state x="337" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1594649948119" />
     <state x="297" y="151" key="run.anything.popup" timestamp="1591259823097">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="297" y="151" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1591259823097" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1587658631955">
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1592731346474">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1587658631955" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1592731346474" />
   </component>
 </project>

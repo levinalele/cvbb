@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-    body{
-        zoom: 70%;
-    }
-</style>
+
 <?php
 include_once "conn.php";
 include_once "function.php";

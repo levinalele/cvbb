@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<style>
-    body{
-        zoom: 70%;
-    }
-</style>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">

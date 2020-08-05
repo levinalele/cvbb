@@ -28,10 +28,10 @@ function masuk($username, $password)
 
 //Iklan
 
-function insertArray($id,$keranjang){
-    $keranjang[sizeof($keranjang)]=$id;
-    return $keranjang;
-}
+//function insertArray($id,$keranjang){
+//    $keranjang[sizeof($keranjang)]=$id;
+//    return $keranjang;
+//}
 
 
 function getAllIklan(){
@@ -41,6 +41,27 @@ function getAllIklan(){
         $sql = "SELECT * FROM iklan";
         //prepare
         $stmt= $link->prepare($sql);
+        //execute
+        $stmt->execute();
+    }catch (PDOException $err){
+        echo $err->getMessage();
+        die();
+    }
+    close_koneksi($link);
+    return $stmt;
+}
+
+
+
+function getAllIklanLimit($awalData,$jumlahDataPerHalaman){
+    $link = get_koneksi();
+    try{
+        //query
+        $sql = "SELECT * FROM iklan LIMIT ?,?";
+        //prepare
+        $stmt= $link->prepare($sql);
+        $stmt->bindParam(1, $awalData, PDO::PARAM_INT);
+        $stmt->bindParam(2, $jumlahDataPerHalaman, PDO::PARAM_INT);
         //execute
         $stmt->execute();
     }catch (PDOException $err){
@@ -191,6 +212,27 @@ function getAllCategory(){
         $sql = "SELECT * FROM category";
         //prepare
         $stmt= $link->prepare($sql);
+        //execute
+        $stmt->execute();
+    }catch (PDOException $err){
+        echo $err->getMessage();
+        die();
+    }
+    close_koneksi($link);
+    return $stmt;
+}
+
+
+
+function getAllCategoryLimit($awal, $JDP){
+    $link = get_koneksi();
+    try{
+        //query
+        $sql = "SELECT * FROM category LIMIT ?,?";
+        //prepare
+        $stmt= $link->prepare($sql);
+        $stmt->bindParam(1, $awal, PDO::PARAM_INT);
+        $stmt->bindParam(2, $JDP, PDO::PARAM_INT);
         //execute
         $stmt->execute();
     }catch (PDOException $err){
@@ -483,6 +525,25 @@ function getAllUser(){
     return $stmt;
 }
 
+function getAllUserLimit($awal,$JDP){
+    $link = get_koneksi();
+    try{
+        //query
+        $sql = "SELECT * FROM kasir LIMIT ?,? ";
+        //prepare
+        $stmt= $link->prepare($sql);
+        $stmt->bindParam(1, $awal, PDO::PARAM_INT);
+        $stmt->bindParam(2, $JDP, PDO::PARAM_INT);
+        //execute
+        $stmt->execute();
+    }catch (PDOException $err){
+        echo $err->getMessage();
+        die();
+    }
+    close_koneksi($link);
+    return $stmt;
+}
+
 function getOneUser($id){
     $link = get_koneksi();
     $msg = 'gagal';
@@ -577,6 +638,25 @@ function getAllBarang(){
         $sql = "SELECT b.*,c.nama_category FROM barang b JOIN category c ON b.id_category = c.id_category";
         //prepare
         $stmt= $link->prepare($sql);
+        //execute
+        $stmt->execute();
+    }catch (PDOException $err){
+        echo $err->getMessage();
+        die();
+    }
+    close_koneksi($link);
+    return $stmt;
+}
+
+function getAllBarangLimit($awal, $JDP){
+    $link = get_koneksi();
+    try{
+        //query
+        $sql = "SELECT b.*,c.nama_category FROM barang b JOIN category c ON b.id_category = c.id_category LIMIT ?,?";
+        //prepare
+        $stmt= $link->prepare($sql);
+        $stmt->bindParam(1, $awal, PDO::PARAM_INT);
+        $stmt->bindParam(2, $JDP, PDO::PARAM_INT);
         //execute
         $stmt->execute();
     }catch (PDOException $err){
@@ -750,6 +830,30 @@ function getOneUserEmail($email){
         //prepare
         $stmt= $link->prepare($sql);
         $stmt->bindParam(1, $email, PDO::PARAM_STR);
+        //execute
+        $stmt->execute();
+        $link->commit();
+        $msg = 'sukses';
+    } catch (PDOException $err) {
+        $link->rollBack();
+        $err->getMessage();
+        die();
+    }
+    close_koneksi($link);
+    return $stmt;
+}
+
+function getOneEmail($id){
+    $link = get_koneksi();
+    $msg = 'gagal';
+    try{
+        //begin transaksi #
+        $link->beginTransaction();
+        //query
+        $sql = "SELECT * FROM kasir WHERE id_kasir =?";
+        //prepare
+        $stmt= $link->prepare($sql);
+        $stmt->bindParam(1, $id, PDO::PARAM_INT);
         //execute
         $stmt->execute();
         $link->commit();

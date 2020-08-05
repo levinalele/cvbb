@@ -24,7 +24,6 @@
   padding: 0; }
 
 body {
-  zoom: 70%;
   font-family: "helveticaneuemedium";
   font-size: 16px; }
 
@@ -130,13 +129,9 @@ img {
 
 .height-600 {
   height: 600px !important; }
-.height-680 {
-  height: 980px !important; }
 
 .height-700 {
   height: 700px !important; }
-.width-2000 {
-  height: 2000px !important; }
 
 .height-800 {
   height: 800px !important; }
@@ -244,7 +239,6 @@ img {
     display: block; } }
 
 .mobile-nav {
-  zoom: 70%;
   position: fixed;
   width: 100%;
   height: 70px;
@@ -382,7 +376,6 @@ img {
 
 /* :: 5.0 Welcome Area CSS */
 .main-content-wrapper {
-  zoom: 70%;
   position: relative;
   z-index: 1;
   -webkit-transition-duration: 500ms;
@@ -391,7 +384,6 @@ img {
   flex-wrap: wrap; }
   @media only screen and (max-width: 767px) {
     .main-content-wrapper {
-      zoom: 70%;
       margin-top: 70px;
       z-index: 100; } }
   .main-content-wrapper .header-area {
@@ -746,12 +738,6 @@ img {
       position: relative;
       z-index: 1;
       padding: 30px 20px; }
-  .main-content-wrapper .cart-table-area .cart-summaryy {
-    background-color: #f5f7fa;
-    margin-top: 0px;
-    position: relative;
-    z-index: 1;
-    padding: 30px 20px; }
       .main-content-wrapper .cart-table-area .cart-summary h5 {
         font-size: 18px;
         margin-bottom: 0; }

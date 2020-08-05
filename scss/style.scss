@@ -1,16 +1,3 @@
-//Common
-@import 'common/extend.scss';
-@import 'common/fonts.scss';
-@import 'common/minxi.scss';
-@import 'common/variables.scss';
-@import 'common/global.scss';
-
-//layout
-@import 'layouts/main.scss';
-
-// Responsive
-@import 'layouts/responsive.scss';
-
 @import 'theme_color';
 @import 'variables';
 @import 'mixin';
@@ -487,11 +474,11 @@ img {
         @include trans-duration(500ms);
         position: relative;
         z-index: 1;
-        @include flex(0 0 280px);
-        width: 280px;
-        max-width: 280px;
+        @include flex(0 0 320px);
+        width: 320px;
+        max-width: 320px;
         background-color: #fff;
-        padding: 60px 0px;
+        padding: 60px 75px;
         @media #{$breakpoint-md} {
             @include flex(0 0 280px);
             width: 280px;

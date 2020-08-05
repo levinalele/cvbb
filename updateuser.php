@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-    body{
-        zoom: 70%;
-    }
-</style>
+
 
 <?php
 
@@ -33,12 +29,7 @@ if($btnSubmit)
 }
 
 
-$btnReset = FILTER_INPUT(INPUT_POST, 'btnForgetPassword');
-if($btnReset)
-{
-    $email = FILTER_INPUT(INPUT_POST, 'email_kasir');
-    forgotPassword($email);
-}
+
 
 
 ?>
@@ -59,6 +50,52 @@ if($btnReset)
     <!-- Core Style CSS -->
     <link rel="stylesheet" href="css/core-style.css">
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        ul.list-group {
+            margin-top: 10%;
+
+        }
+
+        .list-group-item {
+            border: 0 none;
+        }
+
+        li.list-group-item {
+            background-color: rgb(250, 250, 250);
+            margin-top: 2px;
+            margin-bottom: 1px;
+            padding-left: 17%;
+            padding-right: 17%;
+        }
+        .list-group-item.active {
+            z-index: 2;
+            color: #fff;
+            background-color: #ffeeba;
+            border-color: beige;
+        }
+
+        .list-group-item a {
+            font-style: normal;
+            font-size: 15px;
+            animation-duration: 1s;
+        }
+        .side a:hover {
+            margin-left: 20px;
+        }
+        .form-inline li a {
+            font-size: 15px;
+        }
+
+
+    </style>
 
 </head>
 
@@ -84,7 +121,7 @@ if($btnReset)
 <!-- Search Wrapper Area End -->
 
 <!-- ##### Main Content Wrapper Start ##### -->
-<div class="main-content-wrapper d-flex clearfix">
+
 
     <!-- Mobile Nav (max width 767px)-->
     <div class="mobile-nav">
@@ -98,45 +135,38 @@ if($btnReset)
         </div>
     </div>
 
-    <!-- Header Area Start -->
-    <header class="header-area clearfix">
-        <!-- Close Icon -->
-        <div class="nav-close">
-            <i class="fa fa-close" aria-hidden="true"></i>
+<div class="row h-100">
+    <div class="col-3 pr-0" style="background-color: rgb(250,250,250);">
+        <div class="row " style="width: 100%;height: 180px;">
+            <a class="" style="width: 80%;height:80%;margin-top: 5%;margin-left: 17%;" href="index.php"><img width="80%" src="img/core-img/logo.png" alt=""></a>
         </div>
-        <!-- Logo -->
-        <div class="logo">
-            <a href="home.php"><img src="img/core-img/logo.png" alt=""></a>
-        </div>
-        <!-- Amado Nav -->
-        <nav class="amado-nav">
-            <ul>
-                <li ><a href="index.php">Home</a></li>
-                <?php if ($_SESSION['approved_user']==FALSE){ ?><li><a href="index.php?menu=shop">Shop</a></li> <?php } ?>
-                <?php if ($_SESSION['approved_user']==TRUE){ ?><li><a href="index.php?menu=iklan" >Advertisement</a></li><?php } ?>
-                <?php if ($_SESSION['approved_user']==TRUE){ ?><li class="active"><a href="index.php?menu=user">User</a></li><?php } ?>
-                <?php if ($_SESSION['approved_user']==TRUE){ ?><li><a href="index.php?menu=cat">Category</a></li><?php } ?>
-                <?php if ($_SESSION['approved_user']==TRUE){ ?><li ><a href="index.php?menu=barang">Product</a></li><?php } ?>
-                <?php if ($_SESSION['approved_user']==FALSE){ ?><li ><a href="index.php?menu=cart">Cart</a></li><?php } ?>
-                <?php if ($_SESSION['approved_user']==TRUE){ ?><li><a href="index.php?menu=check">Checkout</a></li><?php } ?>
-                <?php if ($_SESSION['approved_user']==TRUE AND $_SESSION['userid']==1){ ?><li><a href="index.php?menu=report">Report</a></li><?php } ?>
+        <div class="row w-100">
+            <ul class="list-group w-100">
+                <li class="list-group-item side"><a href="index.php">Home</a></li>
+                <?php if ($_SESSION['approved_user'] == FALSE) { ?><li class="list-group-item side"><a href="index.php?menu=shop">Shop</a></li> <?php } ?>
+                <?php if ($_SESSION['approved_user'] == TRUE) { ?><li class="list-group-item side "><a href="index.php?menu=iklan">Advertisement</a></li><?php } ?>
+                <?php if ($_SESSION['approved_user'] == TRUE and $_SESSION['userid'] == 1) { ?><li class="list-group-item side active"><a href="index.php?menu=user">User</a></li><?php } ?>
+                <?php if ($_SESSION['approved_user'] == TRUE) { ?><li class="list-group-item side"><a href="index.php?menu=cat">Category</a></li><?php } ?>
+                <?php if ($_SESSION['approved_user'] == TRUE) { ?><li class="list-group-item side"><a href="index.php?menu=barang">Product</a></li><?php } ?>
+                <?php if ($_SESSION['approved_user'] == FALSE) { ?><li class="list-group-item side"><a href="index.php?menu=cart">Cart</a></li><?php } ?>
+                <?php if ($_SESSION['approved_user'] == TRUE) { ?><li class="list-group-item side"><a href="index.php?menu=check">Checkout</a></li><?php } ?>
+                <?php if ($_SESSION['approved_user'] == TRUE and $_SESSION['userid'] == 1) { ?><li class="list-group-item side"><a href="index.php?menu=report">Report</a></li><?php } ?>
+                <li class=" d-flex justify-content-between list-group-item"><a href="https://id.pinterest.com/anssport/toko-bahan-bangunan/"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                    <a href="https://www.instagram.com/cv.bintangbangunan/?hl=id"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    <a href="https://www.facebook.com/bintang.bangunan.7?hc_ref=ARTrk7FZUGrVvfq_6oFUVxUsgYtB2zoHC3ZC0QG0-h76dbhoq9ppno8i5yfX3DEeA5I&fref=nf"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a href="https://twitter.com/carolineadjie"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                </li>
             </ul>
-        </nav><br><br>
-        <!-- Social Button -->
-        <div class="social-info d-flex justify-content-between">
-            <a href="https://id.pinterest.com/anssport/toko-bahan-bangunan/"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-            <a href="https://www.instagram.com/cv.bintangbangunan/?hl=id"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-            <a href="https://www.facebook.com/bintang.bangunan.7?hc_ref=ARTrk7FZUGrVvfq_6oFUVxUsgYtB2zoHC3ZC0QG0-h76dbhoq9ppno8i5yfX3DEeA5I&fref=nf"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-            <a href="https://twitter.com/carolineadjie"><i class="fa fa-twitter" aria-hidden="true"></i></a>
         </div>
-    </header>
-    <!-- Header Area End -->
 
-    <div class="cart-table-area ">
-        <div class="container-fluid">
-            <div class="row" >
-                <div class="col-12 col-lg-12" >
-                    <div class="checkout_details_area mt-50 clearfix">
+        <!-- <div class="social-info d-flex justify-content-between">
+
+        </div> -->
+    </div>
+
+
+                <div class="col-8 col-lg-8" >
+                    <div  style="padding-left: 9%" class="checkout_details_area mt-50 clearfix">
 
                         <div class="cart-title">
                             <h2>Update User</h2>
@@ -144,39 +174,33 @@ if($btnReset)
 
                         <form action="" method="post">
                             <div class="row">
-                                <div class="col-md-12 ">
+                                <div class="col-md-11 ">
                                     <p>Full Name :</p>
                                 </div>
-                                <div class="col-12 mb-3">
+                                <div class="col-11 mb-3">
                                     <input type="text" class="form-control" name="nama_kasir" placeholder="" value="<?php echo $namaUserLama; ?>" disabled="disabled">
                                 </div>
-                                <div class="col-md-12 ">
+                                <div class="col-md-11 ">
                                     <p>Phone Number :</p>
                                 </div>
-                                <div class="col-12 mb-3">
+                                <div class="col-11 mb-3">
                                     <input type="text" class="form-control" name="telepon_kasir" placeholder="" value="<?php echo $tlpUserLama; ?>">
                                 </div>
-                                <div class="col-md-12 ">
+                                <div class="col-md-11 ">
                                     <p>Email :</p>
                                 </div>
-                                <div class="col-12 mb-3">
+                                <div class="col-11 mb-3">
                                     <input type="email" class="form-control" name="email_kasir" placeholder="" value="<?php echo $emailUserLama; ?>">
                                 </div>
-                                <div class="col-md-12 ">
+                                <div class="col-md-11 ">
                                     <p>Address :</p>
                                 </div>
-                                <div class="col-12 mb-3">
+                                <div class="col-11 mb-3">
                                     <input type="text" class="form-control" name="alamat_kasir" placeholder="" value="<?php echo $alamatUserLama; ?>">
                                 </div>
 
-                                <div class="col-md-12 ">
-                                    <p>Password :</p>
-                                </div>
-                                <div class="col-12 mb-3">
-                                    <input type="submit" class="btn btn-outline-success" value="Reset Password" name="btnForgetPassword" />
-                                </div><br>
 
-                                <div class="col-12 mb-3">
+                                <div class="col-11 mb-3">
                                     <input type="submit" class="btn amado-btn w-100" value="Update" name="btnEditUser"/>
                                 </div>
 
@@ -186,15 +210,9 @@ if($btnReset)
                 </div>
 
             </div>
-        </div>
-    </div>
-</div>
-
-</div>
 
 
 
-</div>
 <!-- ##### Main Content Wrapper End ##### -->
 
 

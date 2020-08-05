@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-    body{
-        zoom: 70%;
-    }
-</style>
+
 
 <?php
 include_once "conn.php";
@@ -63,9 +59,6 @@ if($btnCommand == 'delete'){
 
 $submit = filter_input(INPUT_POST, 'submitfix');
 if (isset($submit)) {
-//    var_dump($_SESSION['idfix']);
-//    var_dump($_SESSION['brgfix']);
-//    var_dump($_SESSION['afix']);exit;
     $i = 0;
     while ($i < sizeof($_SESSION['afix'])) {
         $name = 'quantity' . $i;
@@ -83,7 +76,6 @@ if (isset($submit)) {
         $total += $dataaa['harga_barang'] * $dataaa['qty_barang'];
     }
     updateHargaBelian($total,$_SESSION['idfix']);
-
 }
 
 
@@ -105,6 +97,52 @@ if (isset($submit)) {
     <!-- Core Style CSS -->
     <link rel="stylesheet" href="css/core-style.css">
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        ul.list-group {
+            margin-top: 10%;
+
+        }
+
+        .list-group-item {
+            border: 0 none;
+        }
+
+        li.list-group-item {
+            background-color: rgb(250, 250, 250);
+            margin-top: 2px;
+            margin-bottom: 1px;
+            padding-left: 17%;
+            padding-right: 17%;
+        }
+        .list-group-item.active {
+            z-index: 2;
+            color: #fff;
+            background-color: #ffeeba;
+            border-color: beige;
+        }
+
+        .list-group-item a {
+            font-style: normal;
+            font-size: 15px;
+            animation-duration: 1s;
+        }
+        .side a:hover {
+            margin-left: 20px;
+        }
+        .form-inline li a {
+            font-size: 15px;
+        }
+
+
+    </style>
 
 </head>
 
@@ -144,39 +182,34 @@ if (isset($submit)) {
             </div>
         </div>
 
-        <!-- Header Area Start -->
-        <header class="header-area clearfix">
-            <!-- Close Icon -->
-            <div class="nav-close">
-                <i class="fa fa-close" aria-hidden="true"></i>
+        <div class="row h-100">
+            <div class="col-3 pr-0" style="background-color: rgb(250,250,250);">
+                <div class="row " style="width: 100%;height: 180px;">
+                    <a class="" style="width: 80%;height:80%;margin-top: 5%;margin-left: 17%;" href="index.php"><img width="80%" src="img/core-img/logo.png" alt=""></a>
+                </div>
+                <div class="row w-100">
+                    <ul class="list-group w-100">
+                        <li class="list-group-item side"><a href="index.php">Home</a></li>
+                        <?php if ($_SESSION['approved_user'] == FALSE) { ?><li class="list-group-item side"><a href="index.php?menu=shop">Shop</a></li> <?php } ?>
+                        <?php if ($_SESSION['approved_user'] == TRUE) { ?><li class="list-group-item side "><a href="index.php?menu=iklan">Advertisement</a></li><?php } ?>
+                        <?php if ($_SESSION['approved_user'] == TRUE and $_SESSION['userid'] == 1) { ?><li class="list-group-item side"><a href="index.php?menu=user">User</a></li><?php } ?>
+                        <?php if ($_SESSION['approved_user'] == TRUE) { ?><li class="list-group-item side"><a href="index.php?menu=cat">Category</a></li><?php } ?>
+                        <?php if ($_SESSION['approved_user'] == TRUE) { ?><li class="list-group-item side "><a href="index.php?menu=barang">Product</a></li><?php } ?>
+                        <?php if ($_SESSION['approved_user'] == FALSE) { ?><li class="list-group-item side"><a href="index.php?menu=cart">Cart</a></li><?php } ?>
+                        <?php if ($_SESSION['approved_user'] == TRUE) { ?><li class="list-group-item side active"><a href="index.php?menu=check">Checkout</a></li><?php } ?>
+                        <?php if ($_SESSION['approved_user'] == TRUE and $_SESSION['userid'] == 1) { ?><li class="list-group-item side"><a href="index.php?menu=report">Report</a></li><?php } ?>
+                        <li class=" d-flex justify-content-between list-group-item"><a href="https://id.pinterest.com/anssport/toko-bahan-bangunan/"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                            <a href="https://www.instagram.com/cv.bintangbangunan/?hl=id"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                            <a href="https://www.facebook.com/bintang.bangunan.7?hc_ref=ARTrk7FZUGrVvfq_6oFUVxUsgYtB2zoHC3ZC0QG0-h76dbhoq9ppno8i5yfX3DEeA5I&fref=nf"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            <a href="https://twitter.com/carolineadjie"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- <div class="social-info d-flex justify-content-between">
+
+                </div> -->
             </div>
-            <!-- Logo -->
-            <div class="logo">
-                <a href="home.php"><img src="img/core-img/logo.png" alt=""></a>
-            </div>
-            <!-- Amado Nav -->
-            <nav class="amado-nav">
-                <ul>
-                    <li ><a href="index.php">Home</a></li>
-                    <?php if ($_SESSION['approved_user']==FALSE){ ?><li><a href="index.php?menu=shop">Shop</a></li> <?php } ?>
-                    <?php if ($_SESSION['approved_user']==TRUE){ ?><li><a href="index.php?menu=iklan" >Advertisement</a></li><?php } ?>
-                    <?php if ($_SESSION['approved_user']==TRUE AND $_SESSION['userid']==1){ ?><li><a href="index.php?menu=user">User</a></li><?php } ?>
-                    <?php if ($_SESSION['approved_user']==TRUE){ ?><li><a href="index.php?menu=cat">Category</a></li><?php } ?>
-                    <?php if ($_SESSION['approved_user']==TRUE){ ?><li><a href="index.php?menu=barang">Product</a></li><?php } ?>
-                    <?php if ($_SESSION['approved_user']==FALSE){ ?><li ><a href="index.php?menu=cart">Cart</a></li><?php } ?>
-                    <?php if ($_SESSION['approved_user']==TRUE){ ?><li class="active"><a href="index.php?menu=check">Checkout</a></li><?php } ?>
-                    <?php if ($_SESSION['approved_user']==TRUE AND $_SESSION['userid']==1){ ?><li><a href="index.php?menu=report">Report</a></li><?php } ?>
-                </ul>
-            </nav>
-            <br><br>
-            <!-- Social Button -->
-            <div class="social-info d-flex justify-content-between">
-                <a href="https://id.pinterest.com/anssport/toko-bahan-bangunan/"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                <a href="https://www.instagram.com/cv.bintangbangunan/?hl=id"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                <a href="https://www.facebook.com/bintang.bangunan.7?hc_ref=ARTrk7FZUGrVvfq_6oFUVxUsgYtB2zoHC3ZC0QG0-h76dbhoq9ppno8i5yfX3DEeA5I&fref=nf"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                <a href="https://twitter.com/carolineadjie"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-            </div>
-        </header>
         <?php
         $hasil = getAllPembeli();
         ?>
@@ -204,13 +237,13 @@ if (isset($submit)) {
                                                 <h5><?php echo $data['nama_pembeli'] ?></h5>
                                             </td>
                                             <td class="price">
-                                                <button class="btn btn-outline-success" name="btnDetail"
+                                                <button style="margin-left: 20px" class="btn btn-outline-success" name="btnDetail"
                                                         onclick="seedetail(<?php echo $data['id_pembelian'] ?>)">Detail
                                                 </button>
                                             </td>
                                             <td class="qty">
-                                                <button type="button" name="btnDelete"
-                                                        onclick="DeletePembelian(<?php echo $data['id_pembelian'] ?>)"
+                                                <button style="margin-left: 30px" type="button" name="btnDelete"
+                                                        onclick="var result = confirm('Are you sure want to delete <?php echo $data['nama_pembeli']; ?> order ? '); if (result){DeletePembelian(<?php echo $data['id_pembelian'] ?>)}"
                                                         class="btn btn-outline-danger">Delete
                                                 </button>
                                             </td>
@@ -253,8 +286,8 @@ if (isset($submit)) {
                                             <h5><?php echo $dataa['nama_barang'] ?></h5>
                                         </td>
                                         <td class="price">
-                                            <span><?php echo "Rp ", number_format($dataa['harga_barang'],2,",",".") ?></span>
-                                            <span style="color: #5a6268"><?php echo " / ", $dataa['satuan_barang']; ?></span>
+                                            <div><?php echo "Rp ", number_format($dataa['harga_barang'],2,",",".") ?></div>
+                                            <div style="color: #5a6268; margin-top: 8px"><?php echo " / ", $dataa['satuan_barang']; ?></div>
                                         </td>
                                         <td class="qty">
                                             <div class="qty-btn d-flex">
@@ -282,52 +315,83 @@ if (isset($submit)) {
                                     <?php
                                     $i+=1;
                                 }
+                                if ($id != null){
 
                                 ?>
                                 <tr>
                                     <td></td>
                                     <td></td>
-                                    <td></td>
+                                    <td>
+
+                                    </td>
 
                                     <td>
-                                        <input type="submit" name="submitfix" value="FIX ORDER" class="btn amado-btn w-100"/>
+                                        <input type="submit" name="submitfix" value="FIX" class="btn amado-btn"/>
                                     </td>
 
                                 </tr>
+                                <?php } ?>
 
                                 </tbody>
                             </table>
                             </form>
-
-
-                            <table class="table table-responsive">
+                        </div>
+                            <table class="table-responsive-xl" bgcolor="#f8f8ff" width="100%" >
                                 <tbody>
-                                <tr bgcolor="#f8f8ff" style="margin-top: 20px">
-                                    <td >
-                                        <h6>Name        </h6>
-                                        <h6>Total Price </h6>
+                                <?php
+                                $hasill = getAllKeranjangID($id);
+                                $dataa = $hasill->fetch()
+                                ?>
+                                <tr style="margin-top: 20px">
+
+                                    <td  >
+                                        <h6 style="padding-left: 20%; color: #ffc107">Name        </h6>
                                     </td>
-                                    <?php
-                                        $hasill = getAllKeranjangID($id);
-                                        $dataa = $hasill->fetch()
-                                    ?>
                                     <td>
-                                        <h6>: <?php if ($id != null){echo $dataa['nama_pembeli'];} ?></h6>
-                                        <h6>: <?php if ($id != null){echo "Rp ", number_format($dataa['totalharga'],2,",",".");} ?></h6>
+                                        <h6> <?php if ($id != null){echo $dataa['nama_pembeli'];} ?></h6>
                                     </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h6 style="padding-left: 20%; color: #ffc107">Phone       </h6>
+                                    </td>
+                                    <td>
+                                        <h6> <?php if ($id != null){echo $dataa['telepon_pembeli'];} ?></h6>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h6 style="padding-left: 20%; color: #ffc107">Email       </h6>
+                                    </td>
+                                    <td>
+                                        <h6> <?php if ($id != null){echo $dataa['email_pembeli'];} ?></h6>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h6 style="padding-left: 20%; color: #ffc107">Total Price </h6>
+                                    </td>
+                                    <td>
+                                        <h6> <?php if ($id != null){echo "Rp ", number_format($dataa['totalharga'],2,",",".");} ?></h6>
+                                    </td>
+                                </tr>
+
+                                <tr style="margin-bottom: 20px">
+
                                     <td>
                                         <center>
-                                        <button name="btnPay" onclick="Pay(<?php echo $id?>)" class="btn btn-outline-success">Order Paid</button>
+                                            <button style="margin-top: 30px" name="btnPay" onclick="Pay(<?php echo $id?>)" class="btn btn-outline-success">Order Paid</button>
                                         </center>
                                     </td>
                                     <td>
 
-                                        <button name="btnCancel" onclick="DeletePembelian(<?php echo $id?>)" class="btn btn-outline-danger">Cancel Order</button>
+                                        <button style="margin-top: 30px" name="btnCancel" onclick="var result = confirm('Are you sure want to delete <?php echo $dataa['nama_pembeli']; ?> order ? '); if (result){DeletePembelian(<?php echo $id?>)}" class="btn btn-outline-danger">Cancel</button>
                                     </td>
                                 </tr>
 
                                 </tbody>
                             </table>
+                    </div>
 
                         </div>
                     </div>
